@@ -1,13 +1,15 @@
 from PIL import Image
+import argparse
 import os
 
-PATH_TRAIN = 'data/RaFD/train/clothes/'
-PATH_TEST = 'data/RaFD/test/clothes/'
+parser = argparse.ArgumentParser()
+parser.add_argument('--path', type=str, required=True, help='Path to directory to resize') # example 'data/RaFD/train/clothes/'
+parser.add_argument('--new_size', type=int, default=128, help='Size of output image')
 
-size = 128, 128
+args = parser.parse_args()
 
-for filename in os.listdir(PATH_TRAIN):
+for filename in os.listdir(args.path):
     if filename.endswith('.jpg'):
-        img = Image.open(PATH_TRAIN + filename)
-        img = img.resize((128, 128), Image.ANTIALIAS)
-        img.save(PATH_TRAIN + filename)
+        img = Image.open(args.path + filename)
+        img = img.resize((args.new_size, args.new_size), Image.ANTIALIAS)
+        img.save(args.path + filename)

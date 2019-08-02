@@ -6,6 +6,18 @@ From https://github.com/yunjey/stargan
 - PyTorch 0.4.0+
 - TensorFlow 1.3+
 
+## CROPPING DATA
+```sh
+python3 crop_images.py  --path data/RaFD/train/<domain directory>
+                        --crop_size 528   <!-- default to 528 -->
+```
+
+## RESIZING DATA
+```sh
+python3 resize.py --path data/RaFD/train/<domain directory>
+                  --new_size 128   <!-- default to 128 -->
+```
+
 ## TRAIN
 ```sh
 python3 main.py --mode train \
