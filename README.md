@@ -21,9 +21,9 @@ python3 resize.py --path data/RaFD/train/<domain directory>
 ## TRAIN
 ```sh
 python3 main.py --mode train \
-                --dataset RaFD
-                --rafd_crop_size 128 \
-                --image_size 128 \
+                --dataset RaFD \
+                --rafd_crop_size 64 \
+                --image_size 64 \
                 --c_dim 2 \
                 --rafd_image_dir data/RaFD \
                 --sample_dir stargan_custom/samples \
@@ -38,8 +38,8 @@ python3 main.py --mode train \
 ```sh
 python3 main.py --mode test \
                 --dataset RaFD \
-                --rafd_crop_size 128 \
-                --image_size 128 \
+                --rafd_crop_size 64 \
+                --image_size 64 \
                 --c_dim 2 \
                 --rafd_image_dir data/RaFD/test \
                 --sample_dir stargan_custom/samples \
