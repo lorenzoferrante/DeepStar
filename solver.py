@@ -9,6 +9,9 @@ import os
 import time
 import datetime
 
+import torch.nn as nn
+from torch.utils.data import Dataset, DataLoader
+
 
 class Solver(object):
     """Solver for training and testing StarGAN."""
@@ -83,6 +86,11 @@ class Solver(object):
         self.print_network(self.G, 'G')
         self.print_network(self.D, 'D')
             
+
+        if torch.cuda.device_count() > 1:
+            self.G = nn.DataParallel(self.G)
+            self.D = nn.DataParallel(self.D)
+
         self.G.to(self.device)
         self.D.to(self.device)
 
